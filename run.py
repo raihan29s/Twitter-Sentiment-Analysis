@@ -4,6 +4,7 @@ import nltk.classify.util
 from nltk.metrics.scores import precision, accuracy, recall, f_measure, log_likelihood, approxrand
 from nltk.classify import NaiveBayesClassifier, MaxentClassifier, SklearnClassifier
 from sklearn.svm import LinearSVC
+from sklearn.metrics import *
 from util.stopwords import stopwords
 from util.classifier_list import classifier_list
 from helper.tweet_gnome import get_negative_dataset, get_positive_dataset, word_feats
@@ -36,7 +37,7 @@ def evaluate_classifier_performance(features, posdata, negdata):
             reference_sets[label].add(i)
             observed = classifier.classify(feats)
             test_sets[observed].add(i)
-
+        
         accuracy_m = nltk.classify.util.accuracy(classifier, testing_features)
         pos_precision = precision(reference_sets['pos'], test_sets['pos'])
         pos_recall = recall(reference_sets['pos'], test_sets['pos'])
