@@ -1,0 +1,10 @@
+def write_to_file(f, accuracy, precision, recall, fmeasure):
+    f.write(str(accuracy))
+    f.write("\n")
+    f.write(str(precision))
+    f.write("\n")
+    f.write(str(recall))
+    f.write("\n")
+    f.write(str(fmeasure))
+    f.write("\n")
+    f.close()

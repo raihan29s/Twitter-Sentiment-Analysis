@@ -1,0 +1,1 @@
+classifier_list = ['nb', 'maxent', 'svm']
